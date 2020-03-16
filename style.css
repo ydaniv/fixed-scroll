@@ -36,6 +36,7 @@ main {
   min-height: var(--strip-height);
   object-fit: cover;
   will-change: transform;
+  transform: translate3d(0px, 0px, 0px);
 }
 
 .strip .content {
