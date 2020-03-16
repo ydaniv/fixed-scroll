@@ -1,3 +1,3 @@
 # fixed-scroll
-Demo: https://tombigel.github.io/fixed-scroll/
-An attempt to create a visually performent scrub engine by forcing scroll refreshes to be in animationFrame boundaries
+Demo: https://ydaniv.github.io/fixed-scroll/
+An attempt to create a visually performant scrub engine by forcing scroll refreshes to be in animationFrame boundaries

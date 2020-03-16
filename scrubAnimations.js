@@ -164,13 +164,25 @@ class ScrubEffects {
           const end = windowDimensions.height * threshold; // the y position where element should be with translateX(0)
           const current = windowDimensions.y + windowDimensions.height - top; // the current y position of the element
           const progress = Math.max(Math.min(current / end, 1), 0) // the percent of the animation we should be in, normalized
-          const transforms = {
-            top: `translateY(${-bottom * (1 - progress)}px)`,
-            left: `translateX(${-right * (1 - progress)}px)`,
-            bottom: `translateY(${(windowDimensions.height - (top - windowDimensions.y)) * (1 - progress)}px)`,
-            right: `translateX(${(windowDimensions.width - left) * (1 - progress)}px)`
-          };
-          element.style.transform = transforms[direction] || '';
+
+          let x = 0, y = 0;
+
+          switch (direction) {
+            case 'top':
+              y = -bottom * (1 - progress);
+              break;
+            case 'bottom':
+              y = (windowDimensions.height - (top - windowDimensions.y)) * (1 - progress);
+              break;
+            case 'left':
+              x = -right * (1 - progress);
+              break;
+            case 'right':
+              x = (windowDimensions.width - left) * (1 - progress);
+              break;
+          }
+
+          element.style.transform = `translate3d(${x}px, ${y}px, 0px)`;
           break;
         }
       }
