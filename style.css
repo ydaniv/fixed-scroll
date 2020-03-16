@@ -35,7 +35,7 @@ main {
   height: 100vh;
   min-height: var(--strip-height);
   object-fit: cover;
-  /*will-change: transform;*/
+  will-change: transform;
 }
 
 .strip .content {
