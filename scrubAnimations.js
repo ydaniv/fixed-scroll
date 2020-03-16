@@ -36,6 +36,7 @@ class ScrubEffects {
     this.elementsWithEffectsMap = [];
     // The animation root scrollable component
     this.root = root;
+    this.main = root.firstElementChild;
 
     // Wait for document ready
     onReady(() => {
@@ -146,7 +147,7 @@ class ScrubEffects {
           const { top, speed } = params;
           const distance = (windowDimensions.y - top) * speed;
           for (const child of children) {
-            child.style.transform = `translateY(${distance}px)`;
+            child.style.transform = `translate3d(0px, ${distance}px, 0px)`;
           }
           break;
         }
@@ -173,7 +174,7 @@ class ScrubEffects {
           break;
         }
       }
-    };
+    }
   }
 
   /**
@@ -181,13 +182,13 @@ class ScrubEffects {
    * @param {WindowDimensions} params
    */
   propagateScroll({ x, y }) {
-    this.root.scrollTop = y;
-    this.root.scrollLeft = x;
+    // this.root.scrollTop = y;
+    // this.root.scrollLeft = x;
 
     // this.root.style.top = `${-y}px`;
     // this.root.style.left = `${-x}px`;
 
-    //this.root.style.transform = `translateY(${-y}px) translateX(${-x}px)`;
+    this.main.style.transform = `translate3d(0px, ${-y}px, 0px)`;
   }
 }
 window.scrubEffects = new ScrubEffects(document.getElementById('root'));

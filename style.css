@@ -2,6 +2,10 @@
   --strip-height: 1000px;
 }
 
+main {
+  /*will-change: transform;*/
+}
+
 .scrub-root {
   position: fixed;
   width: 100vw;
@@ -31,6 +35,7 @@
   height: 100vh;
   min-height: var(--strip-height);
   object-fit: cover;
+  /*will-change: transform;*/
 }
 
 .strip .content {
